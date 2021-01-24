@@ -1,0 +1,5 @@
+.devcontainer
+.next
+node_modules
+public
+yarn.lock

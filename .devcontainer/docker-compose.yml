@@ -1,0 +1,20 @@
+version: '3.5'
+networks:
+  default:
+    name: nexjs-dev-boilerplate-net
+volumes:
+  node_modules:
+  next:
+services:
+  web:
+    build: .
+    working_dir: /nexjs-dev-boilerplate
+    env_file: devcontainer.env
+    volumes:
+      - ~/.ssh:/root/.ssh
+      - node_modules:/nexjs-dev-boilerplate/node_modules:delegated
+      - next:/nexjs-dev-boilerplate/.next:delegated
+      - ..:/nexjs-dev-boilerplate:delegated
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    ports:
+      - 22001:22001
